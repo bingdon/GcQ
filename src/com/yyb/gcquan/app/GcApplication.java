@@ -11,6 +11,7 @@ import com.yyb.gcquan.support.userdata.UserInfoUtility;
 
 import android.app.Application;
 import android.graphics.Bitmap;
+import android.text.TextUtils;
 
 public class GcApplication extends Application {
 
@@ -21,6 +22,62 @@ public class GcApplication extends Application {
 	private static ImageLoader imageLoader = ImageLoader.getInstance();
 
 	private static DisplayImageOptions options;
+
+	private double Latitude = 0;
+
+	private double Longitude = 0;
+
+	private String address = "";
+
+	private String city = "";
+
+	public void setCity(String city) {
+		UserInfoUtility.setCity(instance, city);
+		this.city = city;
+	}
+
+	public String getCity() {
+		if (TextUtils.isEmpty(city)) {
+			city = UserInfoUtility.getCity(instance);
+		}
+		return city;
+	}
+
+	public void setAddress(String address) {
+		UserInfoUtility.setAddress(instance, address);
+		this.address = address;
+	}
+
+	public String getAddress() {
+		if (TextUtils.isEmpty(address) && address.equals("null")) {
+			address = UserInfoUtility.getAddress(instance);
+		}
+		return "" + address;
+	}
+
+	public void setLongitude(double longitude) {
+		UserInfoUtility.setLongitude(instance, longitude);
+		Longitude = longitude;
+	}
+
+	public double getLongitude() {
+		if (Longitude == 0) {
+			Longitude = UserInfoUtility.getLatitude(instance);
+		}
+		return Longitude;
+	}
+
+	public void setLatitude(double latitude) {
+		UserInfoUtility.setLatitude(instance, latitude);
+		Latitude = latitude;
+	}
+
+	public double getLatitude() {
+		if (Latitude == 0) {
+			Latitude = UserInfoUtility.getLatitude(instance);
+		}
+		return Latitude;
+	}
 
 	public static GcApplication getInstance() {
 		return instance;

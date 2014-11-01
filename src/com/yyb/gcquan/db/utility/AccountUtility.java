@@ -65,8 +65,8 @@ public class AccountUtility implements MethodInterface {
 		UserAccountBean userAccountBean = (UserAccountBean) object;
 		int del = -1;
 		try {
-			String where = AccountTable._ID + " = ?";
-			String[] whereArgs = { String.valueOf(userAccountBean.get_id()) };
+			String where = AccountTable.USER_NAME + " = ?";
+			String[] whereArgs = { String.valueOf(userAccountBean.getUsername()) };
 			del = GcDatabase.proDatabase.delete(AccountTable.TABLE_NAME, where,
 					whereArgs);
 		} catch (Exception e) {
@@ -79,7 +79,16 @@ public class AccountUtility implements MethodInterface {
 	@Override
 	public long deleteAll() {
 		// TODO Auto-generated method stub
-		return 0;
+		long del = -1;
+
+		try {
+			del = GcDatabase.proDatabase.delete(AccountTable.TABLE_NAME, null,
+					null);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return del;
 	}
 
 	@Override

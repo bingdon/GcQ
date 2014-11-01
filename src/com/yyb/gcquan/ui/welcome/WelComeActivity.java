@@ -37,7 +37,8 @@ public class WelComeActivity extends Activity implements Callback {
 		if (null == GcApplication.getInstance().getPersonBean()) {
 			startActivity(new Intent(this, LoginActivity.class));
 		} else {
-			startActivity(new Intent(this, MainActivity.class));
+			startActivity(new Intent(this, LoginActivity.class));
+//			startActivity(new Intent(this, MainActivity.class));
 		}
 
 		finish();

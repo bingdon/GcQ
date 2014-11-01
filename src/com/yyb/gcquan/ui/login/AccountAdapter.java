@@ -21,6 +21,8 @@ public class AccountAdapter extends ArrayAdapter<UserAccountBean> {
 
 	private LayoutInflater inflater;
 
+	private int resource;
+
 	public AccountAdapter(Context context, int resource,
 			List<UserAccountBean> objects) {
 		super(context, resource, objects);
@@ -28,6 +30,7 @@ public class AccountAdapter extends ArrayAdapter<UserAccountBean> {
 		this.list = objects;
 		this.context = context;
 		this.inflater = LayoutInflater.from(context);
+		this.resource = resource;
 	}
 
 	@Override
@@ -54,7 +57,7 @@ public class AccountAdapter extends ArrayAdapter<UserAccountBean> {
 		ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = inflater.inflate(R.layout.login_item, parent, false);
+			convertView = inflater.inflate(resource, parent, false);
 			holder.account = (TextView) convertView.findViewById(R.id.account);
 			holder.delete = (ImageView) convertView.findViewById(R.id.delete);
 			convertView.setTag(holder);

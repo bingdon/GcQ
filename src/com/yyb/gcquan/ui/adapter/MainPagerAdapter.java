@@ -3,6 +3,7 @@ package com.yyb.gcquan.ui.adapter;
 import com.astuetz.PagerSlidingTabStrip.CustomViewProvider;
 import com.yyb.gcquan.R;
 import com.yyb.gcquan.ui.abstractfragment.SuperAwesomeCardFragment;
+import com.yyb.gcquan.ui.contacts.ContactsFragment;
 import com.yyb.gcquan.ui.more.MoreFragment;
 import com.yyb.gcquan.ui.near.NearFragment;
 
@@ -45,6 +46,9 @@ public class MainPagerAdapter extends FragmentPagerAdapter implements
 		switch (position) {
 		case 0:
 			return NearFragment.newInstance(position);
+		case 1:
+			return ContactsFragment.newInstance(position);
+
 		case 4:
 			return MoreFragment.newInstance(position);
 		default:

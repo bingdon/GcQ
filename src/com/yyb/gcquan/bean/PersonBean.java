@@ -2,6 +2,13 @@ package com.yyb.gcquan.bean;
 
 import java.io.Serializable;
 
+import com.yyb.gcquan.app.GcApplication;
+import com.yyb.gcquan.support.debug.AppLog;
+import com.yyb.gcquan.support.distance.DistentsUtil;
+import com.yyb.gcquan.support.time.TimeUtility;
+
+import android.text.TextUtils;
+
 public class PersonBean implements Serializable {
 
 	/**
@@ -22,22 +29,6 @@ public class PersonBean implements Serializable {
 	private String businessinfo;
 
 	private String token;
-
-	public String getToken() {
-		return "" + token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public String getBusinessinfo() {
-		return businessinfo;
-	}
-
-	public void setBusinessinfo(String businessinfo) {
-		this.businessinfo = businessinfo;
-	}
 
 	private String commercialLat;
 
@@ -72,6 +63,52 @@ public class PersonBean implements Serializable {
 	private String type;
 
 	private String username;
+
+	private String reflashtime;
+
+	private double distance;
+
+	private String Cn_time;
+
+	public void setCn_time(String cn_time) {
+		Cn_time = cn_time;
+	}
+
+	public String getCn_time() {
+		return "" + Cn_time;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setReflashtime(String reflashtime) {
+		this.reflashtime = reflashtime;
+	}
+
+	public String getReflashtime() {
+		return reflashtime;
+	}
+
+	public String getToken() {
+		return "" + token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getBusinessinfo() {
+		return businessinfo;
+	}
+
+	public void setBusinessinfo(String businessinfo) {
+		this.businessinfo = businessinfo;
+	}
 
 	public String getAccept() {
 		return "" + accept;
@@ -170,7 +207,10 @@ public class PersonBean implements Serializable {
 	}
 
 	public String getInfo() {
-		return "" + info;
+		if (TextUtils.isEmpty(info)) {
+			return "";
+		}
+		return info;
 	}
 
 	public void setInfo(String info) {
@@ -246,11 +286,30 @@ public class PersonBean implements Serializable {
 	}
 
 	public String getEquipment() {
-		return equipment;
+		return "" + equipment;
 	}
 
 	public void setEquipment(String equipment) {
 		this.equipment = equipment;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		// TODO Auto-generated method stub
+		if (o == null) {
+			return false;
+		}
+		PersonBean personBean = (PersonBean) o;
+
+		if (getReflashtime().equals(personBean.getReflashtime())
+				&& getId().equals(personBean.getId())
+				&& getCommercialLat().equals(personBean.getCommercialLat())
+				&& getUsername().equals(personBean.getUsername())
+				&& getHeadimage().equals(personBean.getHeadimage())
+				&& getSign().equals(personBean.getSign())) {
+			return true;
+		}
+		return false;
 	}
 
 }

@@ -12,6 +12,7 @@
         app:pstsIndicatorColor="@color/theme_light"
         app:pstsIndicatorHeight="5dp"
         app:pstsUnderlineColor="@color/theme_light"
+        android:background="@color/white"
         app:pstsUnderlineHeight="2dp" >
     </com.astuetz.PagerSlidingTabStrip>
 

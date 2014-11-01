@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/near_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/item_vertical_margin"
+    android:paddingLeft="@dimen/item_horizontal_margin"
+    android:paddingRight="@dimen/item_horizontal_margin"
+    android:paddingTop="@dimen/item_vertical_margin" >
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_group" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        layout="@layout/near_group_info_inlude" />
+
+</LinearLayout>
